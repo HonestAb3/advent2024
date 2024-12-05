@@ -14,18 +14,18 @@ def checkIfUpdateIsGood(update, rules):
 f = open("actualinput.txt", "r")
 rules = {}
 updates = []
-for l in f.readlines():
-    if "|" in l:
-        k, v = map(int, l.split("|"))
+for line in f.readlines():
+    if "|" in line:
+        k, v = map(int, line.split("|"))
 
         if k in rules:
             rules[k].append(v)
         else:
             rules[k] = [v]
-    elif l == "\n":
+    elif line == "\n":
         continue
     else:
-        inputUpdate = list(map(int, l.split(",")))
+        inputUpdate = list(map(int, line.split(",")))
         updates.append(inputUpdate)
 
 print(rules)
